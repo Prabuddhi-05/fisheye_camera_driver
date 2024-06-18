@@ -24,7 +24,7 @@ $ git clone git@github.com:Prabuddhi-05/strawberry_data_collection.git
 ```bash
 cd ~/{ROS2_WORKSPACE} && colcon build
 source ~/.bashrc 
-
+```
 ## RUN
 
 ### RGB-D cameras
