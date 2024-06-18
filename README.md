@@ -16,7 +16,7 @@ $ mkdir -p ~/{ROS2_WORKSPACE}/src
 2. In the `src` directory, clone this [strawberry_data_collection](https://github.com/Prabuddhi-05/strawberry_data_collection.git) repository:
 ```bash
 $ cd ~/{ROS2_WORKSPACE}/src
-$ git clone git@github.com:LCAS/human_detection_rgbd_camera.git
+$ git clone git@github.com:Prabuddhi-05/strawberry_data_collection.git
 ```
 3. In the `src` directory, clone the [ultralytics_ros](https://github.com/Alpaca-zip/ultralytics_ros.git) repository. Further, install dependencies and build the workspace: 
 ```bash
