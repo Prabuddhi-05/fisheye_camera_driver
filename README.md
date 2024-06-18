@@ -26,15 +26,13 @@ cd ~/{ROS2_WORKSPACE} && colcon build
 source ~/.bashrc 
 ```
 ## RUN
-1. To start the fisheye camera node, open a bash terminal and use the CLI command:
+1. To launch the ZED 2i camera and fisheye camera nodes, open a terminal and use the following command:
 ```bash
-$ ros2 launch human_detection fisheye_camera_launch.xml
+$ ros2 launch strawberry_data_collection strawberry_data_collection_launch.xml
 ```
-2. To launch the human detection and tracking node for the fisheye camera, open a new bash terminal and use the CLI command: 
+2. To record the data in ROS2 bag files, open another terminal and use the following command: 
 
 ```bash
-$ ros2 launch human_detection detection_fisheye.launch.xml
-
-
+$ ros2 launch strawberry_data_collection strawberry_record_launch.xml
 ```
 
