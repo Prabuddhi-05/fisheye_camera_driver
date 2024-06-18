@@ -8,7 +8,7 @@ This repository contains a ROS2 package for launching a ZED camera and a fisheye
 - Ubuntu 22.04
 - ROS2 Humble
 
-### Git clone repositories
+### Git clone repository
 1. Create a ROS2 workspace and a source directory (`src`):
 ```bash
 $ mkdir -p ~/{ROS2_WORKSPACE}/src
@@ -18,54 +18,7 @@ $ mkdir -p ~/{ROS2_WORKSPACE}/src
 $ cd ~/{ROS2_WORKSPACE}/src
 $ git clone git@github.com:Prabuddhi-05/strawberry_data_collection.git
 ```
-3. In the `src` directory, clone the [ultralytics_ros](https://github.com/Alpaca-zip/ultralytics_ros.git) repository. Further, install dependencies and build the workspace: 
-```bash
-
-$ cd ~/{ROS2_WORKSPACE}/src
-$ GIT_LFS_SKIP_SMUDGE=1 git clone -b humble-devel https://github.com/Alpaca-zip/ultralytics_ros.git 
-$ rosdep install -r -y -i --from-paths .
-$ python3 -m pip install -r ultralytics_ros/requirements.txt 
-$ cd ~/{ROS2_WORKSPACE} && $ colcon build
-$ source ~/.bashrc
-```
-
-**Note**: make sure **Git Large File Storage (LFS)** is installed already as it is required by **ultralytics_ros **. 
-
-4. Additional information:
-
-It is common to have this error notice when building the workspace during Step 3:
-
-```bash
-CMake Error at CmakeLists.txt:16 (find packages)
-```
-
-In this case, please try the following methods in order:
-   
-   (1) Make sure that you have this package installed:
-      
-   ```bash     
-   sudo apt install ros-${ROS_DISTRO}-ament-cmake-clang-format
-   ```
-   
-   ```bash
-   sudo apt install ros-humble-ament-cmake-clang-format
-   ```
-      
-   (2) Authorise permissions to edit the workspace directory. Try giving read/write permission of the workspace to all users using:
-      
-   ```bash
-   cd ~/{ROS2_WORKSPACE}
-   sudo chmod 777 -R .
-   ```
-      
-   (3) Then build using colcon build in the current directory.
-      
-   ```bash
-   cd ~/{ROS2_WORKSPACE} && $ colcon build
-   source ~/.bashrc
-   ```
-
-ADD THE SENSOR DRIVER INFORMATION - TO BE COMPLETED
+3. 
 
 ## RUN
 
