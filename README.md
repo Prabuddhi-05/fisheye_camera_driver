@@ -19,6 +19,11 @@ $ cd ~/{ROS2_WORKSPACE}/src
 $ git clone git@github.com:Prabuddhi-05/strawberry_data_collection.git
 ```
 3. Install the relevant drivers for the ZED 2i camera and Arducam fisheye camera as per the instructions in this [aoc_instruction4sensor-drivers](https://github.com/Cyano0/aoc_instruction4sensor-drivers.git) repository.
+   
+4. Then build using colcon build in the current directory.
+   ```bash
+   cd ~/{ROS2_WORKSPACE} && colcon build
+   source ~/.bashrc 
 
 ## RUN
 
