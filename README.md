@@ -6,14 +6,14 @@ This repository contains a ROS2 package for launching a ZED camera and a fisheye
 
 ### PREREQUISITES:
 - Ubuntu 22.04
-- Ros2 Humble
+- ROS2 Humble
 
 ### Git clone repositories
 1. Create a ROS2 workspace and a source directory (`src`):
 ```bash
 $ mkdir -p ~/{ROS2_WORKSPACE}/src
 ```
-2. In the `src` directory, clone this [human_detection_rgbd_camera](https://github.com/LCAS/human_detection_rgbd_camera.git) repository:
+2. In the `src` directory, clone this [strawberry_data_collection](https://github.com/LCAS/human_detection_rgbd_camera.git) repository:
 ```bash
 $ cd ~/{ROS2_WORKSPACE}/src
 $ git clone git@github.com:LCAS/human_detection_rgbd_camera.git
