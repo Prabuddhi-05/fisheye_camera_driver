@@ -18,7 +18,7 @@ $ mkdir -p ~/{ROS2_WORKSPACE}/src
 $ cd ~/{ROS2_WORKSPACE}/src
 $ git clone git@github.com:Prabuddhi-05/strawberry_data_collection.git
 ```
-3. 
+3. Install the relevant drivers for the ZED2i camera and fisheye camera as per the instructions in this [aoc_instruction4sensor-drivers](https://github.com/Cyano0/aoc_instruction4sensor-drivers.git) repository.
 
 ## RUN
 
