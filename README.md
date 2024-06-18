@@ -13,7 +13,7 @@ This repository contains a ROS2 package for launching a ZED camera and a fisheye
 ```bash
 $ mkdir -p ~/{ROS2_WORKSPACE}/src
 ```
-2. In the `src` directory, clone this [strawberry_data_collection](https://github.com/LCAS/human_detection_rgbd_camera.git) repository:
+2. In the `src` directory, clone this [strawberry_data_collection](https://github.com/Prabuddhi-05/strawberry_data_collection.git) repository:
 ```bash
 $ cd ~/{ROS2_WORKSPACE}/src
 $ git clone git@github.com:LCAS/human_detection_rgbd_camera.git
