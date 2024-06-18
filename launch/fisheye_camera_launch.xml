@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- Launch file to start the fisheye camera node -->
+
+    <node pkg="strawberry_data_collection" exec="fisheye_camera_multiple" name="fisheye_camera_node_1" output="screen">
+        <param name="serial_no" value="SN00014"/>
+    </node>
+</launch>
+
+
+
+
