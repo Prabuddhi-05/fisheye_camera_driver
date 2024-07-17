@@ -35,5 +35,5 @@ $ ros2 launch strawberry_data_collection strawberry_data_collection_launch.xml
 ```bash
 $ ros2 launch strawberry_data_collection strawberry_record_launch.xml
 ```
-Note : To adjust the frame rate of the ZED 2i cameras, modify the 'pub_frame_rate' parameter in the zed-ros2-wrapper/zed_wrapper/config/common.yaml file according to your desired value.  
+Note : To adjust the frame rate of the ZED 2i cameras, modify the 'pub_frame_rate' parameter in the 'zed-ros2-wrapper/zed_wrapper/config/common.yaml' file according to your desired value.  
 
