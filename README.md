@@ -26,7 +26,7 @@ cd ~/{ROS2_WORKSPACE} && colcon build
 source ~/.bashrc 
 ```
 ## RUN
-1. To launch the fisheye camera node, open a terminal and use the following command:
+To launch the fisheye camera node, open a terminal and use the following command:
 ```bash
 $ ros2 launch fisheye_camera_driver multiple_fisheye_launch.xml
 ```  
