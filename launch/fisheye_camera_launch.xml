@@ -1,13 +1,47 @@
 <?xml version="1.0"?>
 <launch>
 
-    <!-- Launch file to start the fisheye camera node -->
+    <!-- Launch file to start the fisheye camera nodes -->
+    
+    <!-- For fisheye_camera_node_1 -->
+    <node pkg="human_detection" exec="fisheye_camera_multiple" name="fisheye_camera_node_1" output="screen">
+        <param name="serial_no" value="SN00011"/>
+    </node>
 
-    <node pkg="strawberry_data_collection" exec="fisheye_camera_multiple" name="fisheye_camera_node_1" output="screen">
+    <!-- Image view node for fisheye_camera_node_1 -->
+    <node pkg="image_view" exec="image_view" name="image_view_node_1" output="screen">
+        <remap from="image" to="/fisheye_image_SN00011"/>
+    </node>
+
+    <!-- For fisheye_camera_node_2 -->
+    <node pkg="human_detection" exec="fisheye_camera_multiple" name="fisheye_camera_node_2" output="screen">
+        <param name="serial_no" value="SN00012"/>
+    </node>
+
+    <!-- Image view node for fisheye_camera_node_2 -->
+    <node pkg="image_view" exec="image_view" name="image_view_node_2" output="screen">
+        <remap from="image" to="/fisheye_image_SN00012"/>
+    </node>
+
+    <!-- For fisheye_camera_node_3 -->
+    <node pkg="human_detection" exec="fisheye_camera_multiple" name="fisheye_camera_node_3" output="screen">
+        <param name="serial_no" value="SN00013"/>
+    </node>
+
+    <!-- Image view node for fisheye_camera_node_3 -->
+    <node pkg="image_view" exec="image_view" name="image_view_node_3" output="screen">
+        <remap from="image" to="/fisheye_image_SN00013"/>
+    </node>
+    
+    <!-- For fisheye_camera_node_4 -->
+    <node pkg="human_detection" exec="fisheye_camera_multiple" name="fisheye_camera_node_4" output="screen">
         <param name="serial_no" value="SN00014"/>
     </node>
+    
+    <!-- Image view node for fisheye_camera_node_4 -->
+    <node pkg="image_view" exec="image_view" name="image_view_node_4" output="screen">
+        <remap from="image" to="/fisheye_image_SN00014"/>
+    </node>
 </launch>
-
-
 
 
