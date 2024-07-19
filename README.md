@@ -1,6 +1,6 @@
 # fisheye_camera_driver
 
-This repository contains a ROS2 package for launching a ZED camera and a fisheye camera to capture images of strawberries in a polytunnel and record the data in ROS 2 bags.
+This repository contains a ROS2 package for launching an Arducam fisheye camera to capture images.
 
 ## SETUP 
 
