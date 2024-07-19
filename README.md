@@ -1,4 +1,4 @@
-# strawberry_data_collection
+# fisheye_camera_driver
 
 This repository contains a ROS2 package for launching a ZED camera and a fisheye camera to capture images of strawberries in a polytunnel and record the data in ROS 2 bags.
 
