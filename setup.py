@@ -23,7 +23,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-          'fisheye_camera_multiple = fisheye_camera_driver.fisheye_camera_multiple:main',
+          'fisheye_camera = fisheye_camera_driver.fisheye_camera:main',
         ],
     },
 )
