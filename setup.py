@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 import os
 from glob import glob
 
-package_name = 'strawberry_data_collection'
+package_name = 'fisheye_camera_driver'
 
 setup(
     name=package_name,
@@ -23,7 +23,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-          'fisheye_camera_multiple = strawberry_data_collection.fisheye_camera_multiple:main',
+          'fisheye_camera_multiple = fisheye_camera_driver.fisheye_camera_multiple:main',
         ],
     },
 )
