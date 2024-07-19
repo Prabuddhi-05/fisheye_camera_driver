@@ -4,7 +4,7 @@
     <!-- Launch file to start the fisheye camera nodes -->
     
     <!-- For fisheye_camera_node_1 -->
-    <node pkg="human_detection" exec="fisheye_camera_multiple" name="fisheye_camera_node_1" output="screen">
+    <node pkg="human_detection" exec="fisheye_camera" name="fisheye_camera_node_1" output="screen">
         <param name="serial_no" value="SN00011"/>
     </node>
 
@@ -14,7 +14,7 @@
     </node>
 
     <!-- For fisheye_camera_node_2 -->
-    <node pkg="human_detection" exec="fisheye_camera_multiple" name="fisheye_camera_node_2" output="screen">
+    <node pkg="human_detection" exec="fisheye_camera" name="fisheye_camera_node_2" output="screen">
         <param name="serial_no" value="SN00012"/>
     </node>
 
@@ -24,7 +24,7 @@
     </node>
 
     <!-- For fisheye_camera_node_3 -->
-    <node pkg="human_detection" exec="fisheye_camera_multiple" name="fisheye_camera_node_3" output="screen">
+    <node pkg="human_detection" exec="fisheye_camera" name="fisheye_camera_node_3" output="screen">
         <param name="serial_no" value="SN00013"/>
     </node>
 
@@ -34,7 +34,7 @@
     </node>
     
     <!-- For fisheye_camera_node_4 -->
-    <node pkg="human_detection" exec="fisheye_camera_multiple" name="fisheye_camera_node_4" output="screen">
+    <node pkg="human_detection" exec="fisheye_camera" name="fisheye_camera_node_4" output="screen">
         <param name="serial_no" value="SN00014"/>
     </node>
     
