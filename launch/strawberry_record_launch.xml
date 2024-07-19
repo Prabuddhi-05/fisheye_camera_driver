@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-
-    <!-- Launch file to record a ROS2 bag -->
-<launch>
-  <executable cmd ="ros2 bag record /zed/zed_node/rgb_raw/image_raw_color /zed/zed_node/depth/depth_registered" output="screen" />
-</launch>
-
-
-
