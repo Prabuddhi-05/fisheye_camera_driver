@@ -28,7 +28,6 @@ class FisheyeCameraNode(Node):
         self.ffmpeg_process = subprocess.Popen(command.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE) # Starts the ffmpeg process
 
         self.bridge = CvBridge() 
-        #self.timer = self.create_timer(1/60, self.publish_video) # Publishes the video frames at a rate of 60 Hz
 
     def find_video_number(self, serial_number): # Finds the video device number based on the serial number
         max_video_number = 50  
