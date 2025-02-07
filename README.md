@@ -28,6 +28,6 @@ source ~/.bashrc
 ## RUN
 To launch the fisheye camera node, open a terminal and use the following command:
 ```bash
-$ ros2 launch fisheye_camera_driver multiple_fisheye_launch.xml
+ros2 launch fisheye_camera_driver multiple_fisheye_launch.xml
 ```  
 
