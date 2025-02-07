@@ -4,7 +4,6 @@ import subprocess  # Runs the shell commands
 import rclpy 
 from rclpy.node import Node 
 from sensor_msgs.msg import Image
-from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
 from cv_bridge import CvBridge
 import numpy as np
 import pyudev  # For working with device nodes
@@ -24,23 +23,18 @@ class FisheyeCameraNode(Node):
 
         self.get_logger().info(f"Found camera device at /dev/video{self.video_device} with serial number {self.serial_no}")
         self.topic_name = f"/fisheye_image_{self.serial_no}"  # Generates a topic name based on the serial number
-        qos_policy = QoSProfile(reliability=ReliabilityPolicy.BEST_EFFORT,
-                                          history=HistoryPolicy.KEEP_LAST,
-                                          depth=1)
-        self.publisher = self.create_publisher(Image, self.topic_name, qos_policy)  # Creates a publisher for the Image messages on the topic 
-        #self.publisher = self.create_publisher(Image, self.topic_name, 10)  # Creates a publisher for the Image messages on the topic 
+        self.publisher = self.create_publisher(Image, self.topic_name, 10)  # Creates a publisher for the Image messages on the topic 
 
         # Updated ffmpeg command to capture at 640x480 resolution
-        command = f"ffmpeg -fflags nobuffer -framerate 30 -video_size 640x360 -i /dev/video{self.video_device} -pix_fmt bgr24 -f rawvideo -"  
+        command = f"ffmpeg -fflags nobuffer -framerate 30 -video_size 640x480 -i /dev/video{self.video_device} -pix_fmt bgr24 -f rawvideo -"  
         
         try:
-            self.ffmpeg_process = subprocess.Popen(command.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE, bufsize=10**8)  # Starts the ffmpeg process
+            self.ffmpeg_process = subprocess.Popen(command.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE)  # Starts the ffmpeg process
         except Exception as e:
             self.get_logger().error(f"Error starting ffmpeg process: {e}")
             return
 
         self.bridge = CvBridge() 
-        # self.timer = self.create_timer(0.05, self.publish_video)
 
     def find_video_number(self, serial_number):  # Finds the video device number based on the serial number
         max_video_number = 50  
@@ -73,37 +67,28 @@ class FisheyeCameraNode(Node):
             return
             
         while True:  # Continuously read and publish frames
-            try:
-                print("================ff===========")
-                raw_frame = self.ffmpeg_process.stdout.read(640 * 360 * 3)  # Reads raw video frame data from the ffmpeg process (640x480 resolution, 3 channels for BGR)
-                print("================ff===========")
-                if len(raw_frame) != 640 * 360 * 3:
-                    print(len(raw_frame))
-                    continue  # Skip incomplete frames
-                print(len(raw_frame))
-                frame = np.frombuffer(raw_frame, dtype=np.uint8).reshape((360, 640, 3))  # Converts the raw frame data to a numpy array (h,w,channels)
-                ros_image = self.bridge.cv2_to_imgmsg(frame, "bgr8") 
-                self.publisher.publish(ros_image)
-            except Exception as e:
-                print("Error {}".format(e))
-                pass 
+            raw_frame = self.ffmpeg_process.stdout.read(640 * 480 * 3)  # Reads raw video frame data from the ffmpeg process (640x480 resolution, 3 channels for BGR)
+            if len(raw_frame) != 640 * 480 * 3:
+                continue  # Skip incomplete frames
 
+            frame = np.frombuffer(raw_frame, dtype=np.uint8).reshape((480, 640, 3))  # Converts the raw frame data to a numpy array (h,w,channels)
+            ros_image = self.bridge.cv2_to_imgmsg(frame, "bgr8") 
+            ros_image.header.stamp = self.get_clock().now().to_msg() #  Include the current ROS timestamp in the header
+            self.publisher.publish(ros_image) 
+        
 def main(args=None):
     rclpy.init(args=args)
-    
-    video_publisher = FisheyeCameraNode()
+    node = FisheyeCameraNode()
 
     try:
         # Continuously process and publish video frames
-        video_publisher.publish_video()
+        node.publish_video()
     except KeyboardInterrupt:
-        video_publisher.get_logger().info('Keyboard Interrupt (SIGINT)')
+        node.get_logger().info('Keyboard Interrupt (SIGINT)')
     finally:
         # Cleanup ROS2 nodes
-        video_publisher.destroy_node()
-    # rclpy.spin(video_publisher)
-    video_publisher.destroy_node()
-    rclpy.shutdown()
+        node.destroy_node()
+        rclpy.shutdown()
 
 if __name__ == '__main__':
     main()

@@ -24,6 +24,7 @@ setup(
     entry_points={
         'console_scripts': [
           'fisheye_camera = fisheye_camera_driver.fisheye_camera:main',
+          'fisheye_camera_resolution_reduce = fisheye_camera_driver.fisheye_camera_resolution_reduce:main',
         ],
     },
 )
